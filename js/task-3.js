@@ -1,11 +1,25 @@
-function getElementWidth(content, padding, border) {
-  return (
-    Number.parseFloat(content) +
-    Number.parseFloat(padding) * 2 +
-    Number.parseFloat(border) * 2
-  );
+// Задача 3. Фільтрація масиву чисел
+// Напиши функцію filterArray(numbers, value), яка приймає масив чисел (numbers) та значення (value) як параметри. Функція повинна повертати новий масив лише тих чисел із масиву numbers, які більші за значення value.
+
+// Усередині функції:
+
+// Створи порожній масив, у який будеш додавати підходящі числа.
+// Використай цикл для ітерації кожного елемента масиву numbers.
+// Використовуй умовний оператор if усередині циклу для перевірки кожного елемента и додавання до свого масиву.
+// Поверни свій новий масив з підходящими числами як результат.
+
+function filterArray(numbers, value) {
+  const filterArray = [];
+  for (const number of numbers) {
+    if (number > value) {
+      filterArray.push(number);
+    }
+  }
+  return filterArray;
 }
 
-console.log(getElementWidth("50px", "8px", "4px")); // 74
-console.log(getElementWidth("60px", "12px", "8.5px")); // 101
-console.log(getElementWidth("200px", "0px", "0px")); // 200
+console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
+console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
+console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
+console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
+console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
